@@ -161,6 +161,24 @@
       <relatedItems xmi:id="_Pm0eb-gmEeiV7Y2vUW6HHA" id="TalendStringUtil" version="Latest" type="routine"/>
       <relatedItems xmi:id="_Pm0ecOgmEeiV7Y2vUW6HHA" id="DataQualityDependencies" version="Latest" type="routine"/>
     </ItemsRelations>
+    <ItemsRelations xmi:id="_q_pnkOixEeimn4xgcc9DlA">
+      <baseItem xmi:id="_q_pnkeixEeimn4xgcc9DlA" id="_j4vWgNuQEeiEK6P9-UThnw" version="2.0" type="job"/>
+      <relatedItems xmi:id="_q_pnkuixEeimn4xgcc9DlA" id="SQLike" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnk-ixEeimn4xgcc9DlA" id="Numeric" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnlOixEeimn4xgcc9DlA" id="TalendString" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnleixEeimn4xgcc9DlA" id="DataMasking" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnluixEeimn4xgcc9DlA" id="DataOperation" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnl-ixEeimn4xgcc9DlA" id="StringHandling" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnmOixEeimn4xgcc9DlA" id="TalendDataGenerator" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnmeixEeimn4xgcc9DlA" id="DqStringHandling" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnmuixEeimn4xgcc9DlA" id="TalendDate" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnm-ixEeimn4xgcc9DlA" id="DataQuality" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnnOixEeimn4xgcc9DlA" id="Mathematical" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnneixEeimn4xgcc9DlA" id="Relational" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnnuixEeimn4xgcc9DlA" id="DQTechnical" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnn-ixEeimn4xgcc9DlA" id="TalendStringUtil" version="Latest" type="routine"/>
+      <relatedItems xmi:id="_q_pnoOixEeimn4xgcc9DlA" id="DataQualityDependencies" version="Latest" type="routine"/>
+    </ItemsRelations>
     <migrationTask xmi:id="_1wLysNguEeirl_NJXVl0MQ" id="org.talend.designer.maven.ui.ConfigMavenRepositoryRemove" breaks="6.0.1" version="6.0.2" status="ok"/>
     <migrationTask xmi:id="_1wLysdguEeirl_NJXVl0MQ" id="org.talend.designer.core.generic.model.migration.ChangeDriverJarForProjectSetting" breaks="7.0.1" version="7.0.1" status="ok"/>
     <migrationTask xmi:id="_1wLystguEeirl_NJXVl0MQ" id="org.talend.repository.model.migration.UpdateExistentMigrationTasksToAdaptNewMigrationSystemMigrationTask" breaks="5.1.1" version="5.1.2" status="ok"/>
