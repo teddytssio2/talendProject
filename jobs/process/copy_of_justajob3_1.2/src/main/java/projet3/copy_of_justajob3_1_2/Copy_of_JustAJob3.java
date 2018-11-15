@@ -266,19 +266,7 @@ public class Copy_of_JustAJob3 implements TalendJob {
 		}
 	}
 
-	public void tFileInputDelimited_1_error(Exception exception,
-			String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent,
-				globalMap);
-	}
-
-	public void tMap_1_error(Exception exception, String errorComponent,
+	public void tWarn_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -286,23 +274,10 @@ public class Copy_of_JustAJob3 implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent,
-				globalMap);
+		tWarn_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileOutputDelimited_2_error(Exception exception,
-			String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_1_onSubJobError(exception, errorComponent,
-				globalMap);
-	}
-
-	public void tFileInputDelimited_1_onSubJobError(Exception exception,
+	public void tWarn_1_onSubJobError(Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -313,326 +288,9 @@ public class Copy_of_JustAJob3 implements TalendJob {
 
 	}
 
-	public static class output3Struct implements
-			routines.system.IPersistableRow<output3Struct> {
-		final static byte[] commonByteArrayLock_PROJET3_Copy_of_JustAJob3 = new byte[0];
-		static byte[] commonByteArray_PROJET3_Copy_of_JustAJob3 = new byte[0];
-
-		public String field1;
-
-		public String getField1() {
-			return this.field1;
-		}
-
-		public String field2;
-
-		public String getField2() {
-			return this.field2;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PROJET3_Copy_of_JustAJob3.length) {
-					if (length < 1024
-							&& commonByteArray_PROJET3_Copy_of_JustAJob3.length == 0) {
-						commonByteArray_PROJET3_Copy_of_JustAJob3 = new byte[1024];
-					} else {
-						commonByteArray_PROJET3_Copy_of_JustAJob3 = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PROJET3_Copy_of_JustAJob3, 0,
-						length);
-				strReturn = new String(
-						commonByteArray_PROJET3_Copy_of_JustAJob3, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos)
-				throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PROJET3_Copy_of_JustAJob3) {
-
-				try {
-
-					int length = 0;
-
-					this.field1 = readString(dis);
-
-					this.field2 = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.field1, dos);
-
-				// String
-
-				writeString(this.field2, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("field1=" + field1);
-			sb.append(",field2=" + field2);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		public String toLogString() {
-			StringBuilder sb = new StringBuilder();
-
-			if (field1 == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(field1);
-			}
-
-			sb.append("|");
-
-			if (field2 == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(field2);
-			}
-
-			sb.append("|");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(output3Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(),
-						object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row1Struct implements
-			routines.system.IPersistableRow<row1Struct> {
-		final static byte[] commonByteArrayLock_PROJET3_Copy_of_JustAJob3 = new byte[0];
-		static byte[] commonByteArray_PROJET3_Copy_of_JustAJob3 = new byte[0];
-
-		public String field1;
-
-		public String getField1() {
-			return this.field1;
-		}
-
-		public String field2;
-
-		public String getField2() {
-			return this.field2;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PROJET3_Copy_of_JustAJob3.length) {
-					if (length < 1024
-							&& commonByteArray_PROJET3_Copy_of_JustAJob3.length == 0) {
-						commonByteArray_PROJET3_Copy_of_JustAJob3 = new byte[1024];
-					} else {
-						commonByteArray_PROJET3_Copy_of_JustAJob3 = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PROJET3_Copy_of_JustAJob3, 0,
-						length);
-				strReturn = new String(
-						commonByteArray_PROJET3_Copy_of_JustAJob3, 0, length,
-						utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos)
-				throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PROJET3_Copy_of_JustAJob3) {
-
-				try {
-
-					int length = 0;
-
-					this.field1 = readString(dis);
-
-					this.field2 = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.field1, dos);
-
-				// String
-
-				writeString(this.field2, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("field1=" + field1);
-			sb.append(",field2=" + field2);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		public String toLogString() {
-			StringBuilder sb = new StringBuilder();
-
-			if (field1 == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(field1);
-			}
-
-			sb.append("|");
-
-			if (field2 == null) {
-				sb.append("<null>");
-			} else {
-				sb.append(field2);
-			}
-
-			sb.append("|");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row1Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(),
-						object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_1Process(
-			final java.util.Map<String, Object> globalMap)
+	public void tWarn_1Process(final java.util.Map<String, Object> globalMap)
 			throws TalendException {
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
+		globalMap.put("tWarn_1_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
@@ -652,729 +310,107 @@ public class Copy_of_JustAJob3 implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
-				row1Struct row1 = new row1Struct();
-				output3Struct output3 = new output3Struct();
-
 				/**
-				 * [tFileOutputDelimited_2 begin ] start
+				 * [tWarn_1 begin ] start
 				 */
 
-				ok_Hash.put("tFileOutputDelimited_2", false);
-				start_Hash.put("tFileOutputDelimited_2",
-						System.currentTimeMillis());
+				ok_Hash.put("tWarn_1", false);
+				start_Hash.put("tWarn_1", System.currentTimeMillis());
 
-				currentComponent = "tFileOutputDelimited_2";
+				currentComponent = "tWarn_1";
 
-				if (execStat) {
-					if (resourceMap.get("inIterateVComp") == null) {
-
-						runStat.updateStatOnConnection("output3" + iterateId,
-								0, 0);
-
-					}
-				}
-
-				int tos_count_tFileOutputDelimited_2 = 0;
+				int tos_count_tWarn_1 = 0;
 
 				if (log.isDebugEnabled())
-					log.debug("tFileOutputDelimited_2 - " + ("Start to work."));
-				class BytesLimit65535_tFileOutputDelimited_2 {
+					log.debug("tWarn_1 - " + ("Start to work."));
+				class BytesLimit65535_tWarn_1 {
 					public void limitLog4jByte() throws Exception {
 
-						StringBuilder log4jParamters_tFileOutputDelimited_2 = new StringBuilder();
-						log4jParamters_tFileOutputDelimited_2
-								.append("Parameters:");
-						log4jParamters_tFileOutputDelimited_2
-								.append("USESTREAM" + " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("FILENAME"
-								+ " = " + "\"./out.csv\"");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("ROWSEPARATOR" + " = " + "\"\\n\"");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("FIELDSEPARATOR" + " = " + "\";\"");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("APPEND"
-								+ " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("INCLUDEHEADER" + " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("COMPRESS"
-								+ " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("ADVANCED_SEPARATOR" + " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("CSV_OPTION" + " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("CREATE"
-								+ " = " + "true");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("SPLIT"
-								+ " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("FLUSHONROW" + " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("ROW_MODE"
-								+ " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2.append("ENCODING"
-								+ " = " + "\"ISO-8859-15\"");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("DELETE_EMPTYFILE" + " = " + "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
-						log4jParamters_tFileOutputDelimited_2
-								.append("FILE_EXIST_EXCEPTION" + " = "
-										+ "false");
-						log4jParamters_tFileOutputDelimited_2.append(" | ");
+						StringBuilder log4jParamters_tWarn_1 = new StringBuilder();
+						log4jParamters_tWarn_1.append("Parameters:");
+						log4jParamters_tWarn_1.append("MESSAGE" + " = "
+								+ "\"this is a warning\"");
+						log4jParamters_tWarn_1.append(" | ");
+						log4jParamters_tWarn_1.append("CODE" + " = " + "42");
+						log4jParamters_tWarn_1.append(" | ");
+						log4jParamters_tWarn_1.append("PRIORITY" + " = " + "4");
+						log4jParamters_tWarn_1.append(" | ");
 						if (log.isDebugEnabled())
-							log.debug("tFileOutputDelimited_2 - "
-									+ (log4jParamters_tFileOutputDelimited_2));
+							log.debug("tWarn_1 - " + (log4jParamters_tWarn_1));
 					}
 				}
 
-				new BytesLimit65535_tFileOutputDelimited_2().limitLog4jByte();
-
-				String fileName_tFileOutputDelimited_2 = "";
-				fileName_tFileOutputDelimited_2 = (new java.io.File("./out.csv"))
-						.getAbsolutePath().replace("\\", "/");
-				String fullName_tFileOutputDelimited_2 = null;
-				String extension_tFileOutputDelimited_2 = null;
-				String directory_tFileOutputDelimited_2 = null;
-				if ((fileName_tFileOutputDelimited_2.indexOf("/") != -1)) {
-					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") < fileName_tFileOutputDelimited_2
-							.lastIndexOf("/")) {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
-						extension_tFileOutputDelimited_2 = "";
-					} else {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-								.substring(0, fileName_tFileOutputDelimited_2
-										.lastIndexOf("."));
-						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-								.substring(fileName_tFileOutputDelimited_2
-										.lastIndexOf("."));
-					}
-					directory_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-							.substring(0, fileName_tFileOutputDelimited_2
-									.lastIndexOf("/"));
-				} else {
-					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") != -1) {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-								.substring(0, fileName_tFileOutputDelimited_2
-										.lastIndexOf("."));
-						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-								.substring(fileName_tFileOutputDelimited_2
-										.lastIndexOf("."));
-					} else {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
-						extension_tFileOutputDelimited_2 = "";
-					}
-					directory_tFileOutputDelimited_2 = "";
-				}
-				boolean isFileGenerated_tFileOutputDelimited_2 = true;
-				java.io.File filetFileOutputDelimited_2 = new java.io.File(
-						fileName_tFileOutputDelimited_2);
-				globalMap.put("tFileOutputDelimited_2_FILE_NAME",
-						fileName_tFileOutputDelimited_2);
-				int nb_line_tFileOutputDelimited_2 = 0;
-				int splitedFileNo_tFileOutputDelimited_2 = 0;
-				int currentRow_tFileOutputDelimited_2 = 0;
-
-				final String OUT_DELIM_tFileOutputDelimited_2 = /**
-				 * Start field
-				 * tFileOutputDelimited_2:FIELDSEPARATOR
-				 */
-				";"/** End field tFileOutputDelimited_2:FIELDSEPARATOR */
-				;
-
-				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_2 = /**
-				 * Start
-				 * field tFileOutputDelimited_2:ROWSEPARATOR
-				 */
-				"\n"/** End field tFileOutputDelimited_2:ROWSEPARATOR */
-				;
-
-				// create directory only if not exists
-				if (directory_tFileOutputDelimited_2 != null
-						&& directory_tFileOutputDelimited_2.trim().length() != 0) {
-					java.io.File dir_tFileOutputDelimited_2 = new java.io.File(
-							directory_tFileOutputDelimited_2);
-					if (!dir_tFileOutputDelimited_2.exists()) {
-						log.info("tFileOutputDelimited_2 - Creating directory '"
-								+ dir_tFileOutputDelimited_2.getCanonicalPath()
-								+ "'.");
-						dir_tFileOutputDelimited_2.mkdirs();
-						log.info("tFileOutputDelimited_2 - The directory '"
-								+ dir_tFileOutputDelimited_2.getCanonicalPath()
-								+ "' has been created successfully.");
-					}
-				}
-
-				// routines.system.Row
-				java.io.Writer outtFileOutputDelimited_2 = null;
-
-				java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(
-						fileName_tFileOutputDelimited_2);
-				if (fileToDelete_tFileOutputDelimited_2.exists()) {
-					fileToDelete_tFileOutputDelimited_2.delete();
-				}
-				outtFileOutputDelimited_2 = new java.io.BufferedWriter(
-						new java.io.OutputStreamWriter(
-								new java.io.FileOutputStream(
-										fileName_tFileOutputDelimited_2, false),
-								"ISO-8859-15"));
-
-				resourceMap.put("out_tFileOutputDelimited_2",
-						outtFileOutputDelimited_2);
-				resourceMap.put("nb_line_tFileOutputDelimited_2",
-						nb_line_tFileOutputDelimited_2);
+				new BytesLimit65535_tWarn_1().limitLog4jByte();
 
 				/**
-				 * [tFileOutputDelimited_2 begin ] stop
+				 * [tWarn_1 begin ] stop
 				 */
 
 				/**
-				 * [tMap_1 begin ] start
+				 * [tWarn_1 main ] start
 				 */
 
-				ok_Hash.put("tMap_1", false);
-				start_Hash.put("tMap_1", System.currentTimeMillis());
+				currentComponent = "tWarn_1";
 
-				currentComponent = "tMap_1";
-
-				if (execStat) {
-					if (resourceMap.get("inIterateVComp") == null) {
-
-						runStat.updateStatOnConnection("row1" + iterateId, 0, 0);
-
-					}
-				}
-
-				int tos_count_tMap_1 = 0;
-
-				if (log.isDebugEnabled())
-					log.debug("tMap_1 - " + ("Start to work."));
-				class BytesLimit65535_tMap_1 {
-					public void limitLog4jByte() throws Exception {
-
-						StringBuilder log4jParamters_tMap_1 = new StringBuilder();
-						log4jParamters_tMap_1.append("Parameters:");
-						log4jParamters_tMap_1.append("LINK_STYLE" + " = "
-								+ "AUTO");
-						log4jParamters_tMap_1.append(" | ");
-						log4jParamters_tMap_1.append("TEMPORARY_DATA_DIRECTORY"
-								+ " = " + "");
-						log4jParamters_tMap_1.append(" | ");
-						log4jParamters_tMap_1.append("ROWS_BUFFER_SIZE" + " = "
-								+ "2000000");
-						log4jParamters_tMap_1.append(" | ");
-						log4jParamters_tMap_1
-								.append("CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL"
-										+ " = " + "true");
-						log4jParamters_tMap_1.append(" | ");
-						if (log.isDebugEnabled())
-							log.debug("tMap_1 - " + (log4jParamters_tMap_1));
-					}
-				}
-
-				new BytesLimit65535_tMap_1().limitLog4jByte();
-
-				// ###############################
-				// # Lookup's keys initialization
-				int count_row1_tMap_1 = 0;
-
-				// ###############################
-
-				// ###############################
-				// # Vars initialization
-				class Var__tMap_1__Struct {
-				}
-				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
-				// ###############################
-
-				// ###############################
-				// # Outputs initialization
-				int count_output3_tMap_1 = 0;
-
-				output3Struct output3_tmp = new output3Struct();
-				// ###############################
-
-				/**
-				 * [tMap_1 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_1 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_1", false);
-				start_Hash.put("tFileInputDelimited_1",
-						System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_1";
-
-				int tos_count_tFileInputDelimited_1 = 0;
-
-				if (log.isDebugEnabled())
-					log.debug("tFileInputDelimited_1 - " + ("Start to work."));
-				class BytesLimit65535_tFileInputDelimited_1 {
-					public void limitLog4jByte() throws Exception {
-
-						StringBuilder log4jParamters_tFileInputDelimited_1 = new StringBuilder();
-						log4jParamters_tFileInputDelimited_1
-								.append("Parameters:");
-						log4jParamters_tFileInputDelimited_1.append("FILENAME"
-								+ " = " + "\"./ian.csv\"");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("CSV_OPTION" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("ROWSEPARATOR" + " = " + "\"\\n\"");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("FIELDSEPARATOR" + " = " + "\";\"");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1.append("HEADER"
-								+ " = " + "0");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1.append("FOOTER"
-								+ " = " + "0");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1.append("LIMIT"
-								+ " = " + "");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("REMOVE_EMPTY_ROW" + " = " + "true");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("UNCOMPRESS" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("DIE_ON_ERROR" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("ADVANCED_SEPARATOR" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1.append("RANDOM"
-								+ " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1.append("TRIMALL"
-								+ " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("TRIMSELECT" + " = " + "[{TRIM="
-										+ ("false") + ", SCHEMA_COLUMN="
-										+ ("field1") + "}, {TRIM=" + ("false")
-										+ ", SCHEMA_COLUMN=" + ("field2")
-										+ "}]");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("CHECK_FIELDS_NUM" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("CHECK_DATE" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1.append("ENCODING"
-								+ " = " + "\"ISO-8859-15\"");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("SPLITRECORD" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						log4jParamters_tFileInputDelimited_1
-								.append("ENABLE_DECODE" + " = " + "false");
-						log4jParamters_tFileInputDelimited_1.append(" | ");
-						if (log.isDebugEnabled())
-							log.debug("tFileInputDelimited_1 - "
-									+ (log4jParamters_tFileInputDelimited_1));
-					}
-				}
-
-				new BytesLimit65535_tFileInputDelimited_1().limitLog4jByte();
-
-				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
 				try {
 
-					Object filename_tFileInputDelimited_1 = "./ian.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0
-								|| random_value_tFileInputDelimited_1 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"./ian.csv", "ISO-8859-15", ";", "\n", true, 0,
-								0, -1, -1, false);
-					} catch (java.lang.Exception e) {
-
-						log.error("tFileInputDelimited_1 - " + e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					log.info("tFileInputDelimited_1 - Retrieving records from the datasource.");
-
-					while (fid_tFileInputDelimited_1 != null
-							&& fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
-
-						row1 = null;
-
-						boolean whetherReject_tFileInputDelimited_1 = false;
-						row1 = new row1Struct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							row1.field1 = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 1;
-
-							row1.field2 = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							if (rowstate_tFileInputDelimited_1.getException() != null) {
-								throw rowstate_tFileInputDelimited_1
-										.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							whetherReject_tFileInputDelimited_1 = true;
-
-							log.error("tFileInputDelimited_1 - "
-									+ e.getMessage());
-
-							System.err.println(e.getMessage());
-							row1 = null;
-
-						}
-
-						log.debug("tFileInputDelimited_1 - Retrieving the record "
-								+ fid_tFileInputDelimited_1.getRowNumber()
-								+ ".");
-
-						/**
-						 * [tFileInputDelimited_1 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						tos_count_tFileInputDelimited_1++;
-
-						/**
-						 * [tFileInputDelimited_1 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] stop
-						 */
-						// Start of branch "row1"
-						if (row1 != null) {
-
-							/**
-							 * [tMap_1 main ] start
-							 */
-
-							currentComponent = "tMap_1";
-
-							// row1
-							// row1
-
-							if (execStat) {
-								runStat.updateStatOnConnection("row1"
-										+ iterateId, 1, 1);
-							}
-
-							if (log.isTraceEnabled()) {
-								log.trace("row1 - "
-										+ (row1 == null ? "" : row1
-												.toLogString()));
-							}
-
-							boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
-
-							// ###############################
-							// # Input tables (lookups)
-							boolean rejectedInnerJoin_tMap_1 = false;
-							boolean mainRowRejected_tMap_1 = false;
-
-							// ###############################
-							{ // start of Var scope
-
-								// ###############################
-								// # Vars tables
-
-								Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
-								// ###############################
-								// # Output tables
-
-								output3 = null;
-
-								// # Output table : 'output3'
-								count_output3_tMap_1++;
-
-								output3_tmp.field1 = row1.field2;
-								output3_tmp.field2 = row1.field1;
-								output3 = output3_tmp;
-								log.debug("tMap_1 - Outputting the record "
-										+ count_output3_tMap_1
-										+ " of the output table 'output3'.");
-
-								// ###############################
-
-							} // end of Var scope
-
-							rejectedInnerJoin_tMap_1 = false;
-
-							tos_count_tMap_1++;
-
-							/**
-							 * [tMap_1 main ] stop
-							 */
-
-							/**
-							 * [tMap_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tMap_1";
-
-							/**
-							 * [tMap_1 process_data_begin ] stop
-							 */
-							// Start of branch "output3"
-							if (output3 != null) {
-
-								/**
-								 * [tFileOutputDelimited_2 main ] start
-								 */
-
-								currentComponent = "tFileOutputDelimited_2";
-
-								// output3
-								// output3
-
-								if (execStat) {
-									runStat.updateStatOnConnection("output3"
-											+ iterateId, 1, 1);
-								}
-
-								if (log.isTraceEnabled()) {
-									log.trace("output3 - "
-											+ (output3 == null ? "" : output3
-													.toLogString()));
-								}
-
-								StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
-								if (output3.field1 != null) {
-									sb_tFileOutputDelimited_2
-											.append(output3.field1);
-								}
-								sb_tFileOutputDelimited_2
-										.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (output3.field2 != null) {
-									sb_tFileOutputDelimited_2
-											.append(output3.field2);
-								}
-								sb_tFileOutputDelimited_2
-										.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
-
-								nb_line_tFileOutputDelimited_2++;
-								resourceMap.put(
-										"nb_line_tFileOutputDelimited_2",
-										nb_line_tFileOutputDelimited_2);
-
-								outtFileOutputDelimited_2
-										.write(sb_tFileOutputDelimited_2
-												.toString());
-								log.debug("tFileOutputDelimited_2 - Writing the record "
-										+ nb_line_tFileOutputDelimited_2 + ".");
-
-								tos_count_tFileOutputDelimited_2++;
-
-								/**
-								 * [tFileOutputDelimited_2 main ] stop
-								 */
-
-								/**
-								 * [tFileOutputDelimited_2 process_data_begin ]
-								 * start
-								 */
-
-								currentComponent = "tFileOutputDelimited_2";
-
-								/**
-								 * [tFileOutputDelimited_2 process_data_begin ]
-								 * stop
-								 */
-
-								/**
-								 * [tFileOutputDelimited_2 process_data_end ]
-								 * start
-								 */
-
-								currentComponent = "tFileOutputDelimited_2";
-
-								/**
-								 * [tFileOutputDelimited_2 process_data_end ]
-								 * stop
-								 */
-
-							} // End of branch "output3"
-
-							/**
-							 * [tMap_1 process_data_end ] start
-							 */
-
-							currentComponent = "tMap_1";
-
-							/**
-							 * [tMap_1 process_data_end ] stop
-							 */
-
-						} // End of branch "row1"
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-					}
-				} finally {
-					if (!((Object) ("./ian.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
-						}
-					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE",
-								fid_tFileInputDelimited_1.getRowNumber());
-
-						log.info("tFileInputDelimited_1 - Retrieved records count: "
-								+ fid_tFileInputDelimited_1.getRowNumber()
-								+ ".");
-
-					}
+					resumeUtil.addLog("USER_DEF_LOG", "NODE:tWarn_1", "",
+							Thread.currentThread().getId() + "", "WARN", "",
+							"this is a warning", "", "");
+					log.warn("tWarn_1 - " + ("Message: ")
+							+ ("this is a warning") + (". Code: ") + (42));
+					globalMap.put("tWarn_1_WARN_MESSAGES", "this is a warning");
+					globalMap.put("tWarn_1_WARN_PRIORITY", 4);
+					globalMap.put("tWarn_1_WARN_CODE", 42);
+
+				} catch (Exception e_tWarn_1) {
+					logIgnoredError(
+							String.format(
+									"tWarn_1 - tWarn failed to log message due to internal error: %s",
+									e_tWarn_1), e_tWarn_1);
 				}
+
+				tos_count_tWarn_1++;
+
+				/**
+				 * [tWarn_1 main ] stop
+				 */
+
+				/**
+				 * [tWarn_1 process_data_begin ] start
+				 */
+
+				currentComponent = "tWarn_1";
+
+				/**
+				 * [tWarn_1 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tWarn_1 process_data_end ] start
+				 */
+
+				currentComponent = "tWarn_1";
+
+				/**
+				 * [tWarn_1 process_data_end ] stop
+				 */
+
+				/**
+				 * [tWarn_1 end ] start
+				 */
+
+				currentComponent = "tWarn_1";
 
 				if (log.isDebugEnabled())
-					log.debug("tFileInputDelimited_1 - " + ("Done."));
+					log.debug("tWarn_1 - " + ("Done."));
 
-				ok_Hash.put("tFileInputDelimited_1", true);
-				end_Hash.put("tFileInputDelimited_1",
-						System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_1 end ] stop
-				 */
+				ok_Hash.put("tWarn_1", true);
+				end_Hash.put("tWarn_1", System.currentTimeMillis());
 
 				/**
-				 * [tMap_1 end ] start
+				 * [tWarn_1 end ] stop
 				 */
-
-				currentComponent = "tMap_1";
-
-				// ###############################
-				// # Lookup hashes releasing
-				// ###############################
-				log.debug("tMap_1 - Written records count in the table 'output3': "
-						+ count_output3_tMap_1 + ".");
-
-				if (execStat) {
-					if (resourceMap.get("inIterateVComp") == null
-							|| !((Boolean) resourceMap.get("inIterateVComp"))) {
-						runStat.updateStatOnConnection("row1" + iterateId, 2, 0);
-					}
-				}
-
-				if (log.isDebugEnabled())
-					log.debug("tMap_1 - " + ("Done."));
-
-				ok_Hash.put("tMap_1", true);
-				end_Hash.put("tMap_1", System.currentTimeMillis());
-
-				/**
-				 * [tMap_1 end ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_2 end ] start
-				 */
-
-				currentComponent = "tFileOutputDelimited_2";
-
-				if (outtFileOutputDelimited_2 != null) {
-					outtFileOutputDelimited_2.flush();
-					outtFileOutputDelimited_2.close();
-				}
-
-				globalMap.put("tFileOutputDelimited_2_NB_LINE",
-						nb_line_tFileOutputDelimited_2);
-				globalMap.put("tFileOutputDelimited_2_FILE_NAME",
-						fileName_tFileOutputDelimited_2);
-
-				resourceMap.put("finish_tFileOutputDelimited_2", true);
-
-				log.debug("tFileOutputDelimited_2 - Written records count: "
-						+ nb_line_tFileOutputDelimited_2 + " .");
-
-				if (execStat) {
-					if (resourceMap.get("inIterateVComp") == null
-							|| !((Boolean) resourceMap.get("inIterateVComp"))) {
-						runStat.updateStatOnConnection("output3" + iterateId,
-								2, 0);
-					}
-				}
-
-				if (log.isDebugEnabled())
-					log.debug("tFileOutputDelimited_2 - " + ("Done."));
-
-				ok_Hash.put("tFileOutputDelimited_2", true);
-				end_Hash.put("tFileOutputDelimited_2",
-						System.currentTimeMillis());
-
-				/**
-				 * [tFileOutputDelimited_2 end ] stop
-				 */
-
 			}// end the resume
 
 		} catch (java.lang.Exception e) {
@@ -1397,46 +433,14 @@ public class Copy_of_JustAJob3 implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputDelimited_1 finally ] start
+				 * [tWarn_1 finally ] start
 				 */
 
-				currentComponent = "tFileInputDelimited_1";
+				currentComponent = "tWarn_1";
 
 				/**
-				 * [tFileInputDelimited_1 finally ] stop
+				 * [tWarn_1 finally ] stop
 				 */
-
-				/**
-				 * [tMap_1 finally ] start
-				 */
-
-				currentComponent = "tMap_1";
-
-				/**
-				 * [tMap_1 finally ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_2 finally ] start
-				 */
-
-				currentComponent = "tFileOutputDelimited_2";
-
-				if (resourceMap.get("finish_tFileOutputDelimited_2") == null) {
-
-					java.io.Writer outtFileOutputDelimited_2 = (java.io.Writer) resourceMap
-							.get("out_tFileOutputDelimited_2");
-					if (outtFileOutputDelimited_2 != null) {
-						outtFileOutputDelimited_2.flush();
-						outtFileOutputDelimited_2.close();
-					}
-
-				}
-
-				/**
-				 * [tFileOutputDelimited_2 finally ] stop
-				 */
-
 			} catch (java.lang.Exception e) {
 				// ignore
 			} catch (java.lang.Error error) {
@@ -1445,7 +449,7 @@ public class Copy_of_JustAJob3 implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
+		globalMap.put("tWarn_1_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -1663,14 +667,14 @@ public class Copy_of_JustAJob3 implements TalendJob {
 
 		try {
 			errorCode = null;
-			tFileInputDelimited_1Process(globalMap);
+			tWarn_1Process(globalMap);
 			if (!"failure".equals(status)) {
 				status = "end";
 			}
-		} catch (TalendException e_tFileInputDelimited_1) {
-			globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", -1);
+		} catch (TalendException e_tWarn_1) {
+			globalMap.put("tWarn_1_SUBPROCESS_STATE", -1);
 
-			e_tFileInputDelimited_1.printStackTrace();
+			e_tWarn_1.printStackTrace();
 
 		}
 
@@ -1830,6 +834,6 @@ public class Copy_of_JustAJob3 implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 57318 characters generated by Talend Cloud Data Management Platform on the 14
- * novembre 2018 17:05:43 CET
+ * 26002 characters generated by Talend Cloud Data Management Platform on the 15
+ * novembre 2018 09:29:19 CET
  ************************************************************************************************/

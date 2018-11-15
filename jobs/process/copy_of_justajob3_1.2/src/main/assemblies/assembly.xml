@@ -225,7 +225,6 @@
 				<include>org.talend.libraries:log4j-1.2.16</include>
 				<include>org.talend.libraries:org.talend.dataquality.parser</include>
 				<include>org.talend.libraries:talend_file_enhanced_20070724</include>
-				<include>org.talend.libraries:talendcsv</include>
 			</includes>
 			<!-- without version for talend libraries -->
 			<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}
