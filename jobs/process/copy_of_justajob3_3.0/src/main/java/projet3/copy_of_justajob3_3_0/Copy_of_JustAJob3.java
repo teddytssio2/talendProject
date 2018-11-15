@@ -277,6 +277,15 @@ private class TalendException extends Exception {
 					tWarn_3_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
+			public void tWarn_4_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tWarn_4_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
 			public void tWarn_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
@@ -288,6 +297,11 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 
 			}
 			public void tWarn_3_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
+			public void tWarn_4_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
 
@@ -981,6 +995,233 @@ end_Hash.put("tWarn_3", System.currentTimeMillis());
 		globalMap.put("tWarn_3_SUBPROCESS_STATE", 1);
 	}
 	
+
+public void tWarn_4Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tWarn_4_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
+		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+	try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
+				globalResumeTicket = true;
+
+
+
+
+
+	
+	/**
+	 * [tWarn_4 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tWarn_4", false);
+		start_Hash.put("tWarn_4", System.currentTimeMillis());
+		
+	
+	currentComponent="tWarn_4";
+
+	
+		int tos_count_tWarn_4 = 0;
+		
+                if(log.isDebugEnabled())
+            log.debug("tWarn_4 - "  + ("Start to work.") );
+    	class BytesLimit65535_tWarn_4{
+    		public void limitLog4jByte() throws Exception{
+    			
+            StringBuilder log4jParamters_tWarn_4 = new StringBuilder();
+            log4jParamters_tWarn_4.append("Parameters:");
+                    log4jParamters_tWarn_4.append("MESSAGE" + " = " + "\"this is a warning\"");
+                log4jParamters_tWarn_4.append(" | ");
+                    log4jParamters_tWarn_4.append("CODE" + " = " + "42");
+                log4jParamters_tWarn_4.append(" | ");
+                    log4jParamters_tWarn_4.append("PRIORITY" + " = " + "4");
+                log4jParamters_tWarn_4.append(" | ");
+                if(log.isDebugEnabled())
+            log.debug("tWarn_4 - "  + (log4jParamters_tWarn_4) );
+    		}
+    	}
+    	
+        new BytesLimit65535_tWarn_4().limitLog4jByte();
+
+ 
+
+
+
+/**
+ * [tWarn_4 begin ] stop
+ */
+	
+	/**
+	 * [tWarn_4 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tWarn_4";
+
+	
+
+		
+try {
+	
+	resumeUtil.addLog("USER_DEF_LOG", "NODE:tWarn_4", "", Thread.currentThread().getId() + "", "WARN","","this is a warning","", "");
+            log.warn("tWarn_4 - "  + ("Message: ")  + ("this is a warning")  + (". Code: ")  + (42) );
+	globalMap.put("tWarn_4_WARN_MESSAGES", "this is a warning"); 
+	globalMap.put("tWarn_4_WARN_PRIORITY", 4);
+	globalMap.put("tWarn_4_WARN_CODE", 42);
+	
+} catch (Exception e_tWarn_4) {
+	logIgnoredError(String.format("tWarn_4 - tWarn failed to log message due to internal error: %s", e_tWarn_4), e_tWarn_4);
+}
+
+
+ 
+
+
+	tos_count_tWarn_4++;
+
+/**
+ * [tWarn_4 main ] stop
+ */
+	
+	/**
+	 * [tWarn_4 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tWarn_4";
+
+	
+
+ 
+
+
+
+/**
+ * [tWarn_4 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tWarn_4 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tWarn_4";
+
+	
+
+ 
+
+
+
+/**
+ * [tWarn_4 process_data_end ] stop
+ */
+	
+	/**
+	 * [tWarn_4 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tWarn_4";
+
+	
+
+ 
+                if(log.isDebugEnabled())
+            log.debug("tWarn_4 - "  + ("Done.") );
+
+ok_Hash.put("tWarn_4", true);
+end_Hash.put("tWarn_4", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tWarn_4 end ] stop
+ */
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				    if(!(e instanceof TalendException)){
+					   log.fatal(currentComponent + " " + e.getMessage(),e);
+					}
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tWarn_4 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tWarn_4";
+
+	
+
+ 
+
+
+
+/**
+ * [tWarn_4 finally ] stop
+ */
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
+
+		globalMap.put("tWarn_4_SUBPROCESS_STATE", 1);
+	}
+	
     public String resuming_logs_dir_path = null;
     public String resuming_checkpoint_path = null;
     public String parent_part_launcher = null;
@@ -1198,6 +1439,15 @@ globalMap.put("tWarn_3_SUBPROCESS_STATE", -1);
 e_tWarn_3.printStackTrace();
 
 }
+try {
+errorCode = null;tWarn_4Process(globalMap);
+if(!"failure".equals(status)) { status = "end"; }
+}catch (TalendException e_tWarn_4) {
+globalMap.put("tWarn_4_SUBPROCESS_STATE", -1);
+
+e_tWarn_4.printStackTrace();
+
+}
 
 this.globalResumeTicket = true;//to run tPostJob
 
@@ -1365,6 +1615,6 @@ this.globalResumeTicket = true;//to run tPostJob
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     35018 characters generated by Talend Cloud Data Management Platform 
- *     on the 15 novembre 2018 11:36:35 CET
+ *     40021 characters generated by Talend Cloud Data Management Platform 
+ *     on the 15 novembre 2018 12:22:27 CET
  ************************************************************************************************/
