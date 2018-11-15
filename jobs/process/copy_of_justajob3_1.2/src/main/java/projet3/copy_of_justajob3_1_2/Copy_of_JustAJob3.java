@@ -277,7 +277,29 @@ public class Copy_of_JustAJob3 implements TalendJob {
 		tWarn_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tWarn_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tWarn_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tWarn_1_onSubJobError(Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread
+				.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(),
+				ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tWarn_2_onSubJobError(Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -329,11 +351,11 @@ public class Copy_of_JustAJob3 implements TalendJob {
 						StringBuilder log4jParamters_tWarn_1 = new StringBuilder();
 						log4jParamters_tWarn_1.append("Parameters:");
 						log4jParamters_tWarn_1.append("MESSAGE" + " = "
-								+ "\"this is a warning\"");
+								+ "\"Trace 1\"");
 						log4jParamters_tWarn_1.append(" | ");
 						log4jParamters_tWarn_1.append("CODE" + " = " + "42");
 						log4jParamters_tWarn_1.append(" | ");
-						log4jParamters_tWarn_1.append("PRIORITY" + " = " + "4");
+						log4jParamters_tWarn_1.append("PRIORITY" + " = " + "1");
 						log4jParamters_tWarn_1.append(" | ");
 						if (log.isDebugEnabled())
 							log.debug("tWarn_1 - " + (log4jParamters_tWarn_1));
@@ -355,12 +377,13 @@ public class Copy_of_JustAJob3 implements TalendJob {
 				try {
 
 					resumeUtil.addLog("USER_DEF_LOG", "NODE:tWarn_1", "",
-							Thread.currentThread().getId() + "", "WARN", "",
-							"this is a warning", "", "");
-					log.warn("tWarn_1 - " + ("Message: ")
-							+ ("this is a warning") + (". Code: ") + (42));
-					globalMap.put("tWarn_1_WARN_MESSAGES", "this is a warning");
-					globalMap.put("tWarn_1_WARN_PRIORITY", 4);
+							Thread.currentThread().getId() + "", "TRACE", "",
+							"Trace 1", "", "");
+					if (log.isTraceEnabled())
+						log.trace("tWarn_1 - " + ("Message: ") + ("Trace 1")
+								+ (". Code: ") + (42));
+					globalMap.put("tWarn_1_WARN_MESSAGES", "Trace 1");
+					globalMap.put("tWarn_1_WARN_PRIORITY", 1);
 					globalMap.put("tWarn_1_WARN_CODE", 42);
 
 				} catch (Exception e_tWarn_1) {
@@ -450,6 +473,171 @@ public class Copy_of_JustAJob3 implements TalendJob {
 		}
 
 		globalMap.put("tWarn_1_SUBPROCESS_STATE", 1);
+	}
+
+	public void tWarn_2Process(final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+		globalMap.put("tWarn_2_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception()
+						.getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tWarn_2 begin ] start
+				 */
+
+				ok_Hash.put("tWarn_2", false);
+				start_Hash.put("tWarn_2", System.currentTimeMillis());
+
+				currentComponent = "tWarn_2";
+
+				int tos_count_tWarn_2 = 0;
+
+				if (log.isDebugEnabled())
+					log.debug("tWarn_2 - " + ("Start to work."));
+				class BytesLimit65535_tWarn_2 {
+					public void limitLog4jByte() throws Exception {
+
+						StringBuilder log4jParamters_tWarn_2 = new StringBuilder();
+						log4jParamters_tWarn_2.append("Parameters:");
+						log4jParamters_tWarn_2.append("MESSAGE" + " = "
+								+ "\"Trace 2\"");
+						log4jParamters_tWarn_2.append(" | ");
+						log4jParamters_tWarn_2.append("CODE" + " = " + "42");
+						log4jParamters_tWarn_2.append(" | ");
+						log4jParamters_tWarn_2.append("PRIORITY" + " = " + "1");
+						log4jParamters_tWarn_2.append(" | ");
+						if (log.isDebugEnabled())
+							log.debug("tWarn_2 - " + (log4jParamters_tWarn_2));
+					}
+				}
+
+				new BytesLimit65535_tWarn_2().limitLog4jByte();
+
+				/**
+				 * [tWarn_2 begin ] stop
+				 */
+
+				/**
+				 * [tWarn_2 main ] start
+				 */
+
+				currentComponent = "tWarn_2";
+
+				try {
+
+					resumeUtil.addLog("USER_DEF_LOG", "NODE:tWarn_2", "",
+							Thread.currentThread().getId() + "", "TRACE", "",
+							"Trace 2", "", "");
+					if (log.isTraceEnabled())
+						log.trace("tWarn_2 - " + ("Message: ") + ("Trace 2")
+								+ (". Code: ") + (42));
+					globalMap.put("tWarn_2_WARN_MESSAGES", "Trace 2");
+					globalMap.put("tWarn_2_WARN_PRIORITY", 1);
+					globalMap.put("tWarn_2_WARN_CODE", 42);
+
+				} catch (Exception e_tWarn_2) {
+					logIgnoredError(
+							String.format(
+									"tWarn_2 - tWarn failed to log message due to internal error: %s",
+									e_tWarn_2), e_tWarn_2);
+				}
+
+				tos_count_tWarn_2++;
+
+				/**
+				 * [tWarn_2 main ] stop
+				 */
+
+				/**
+				 * [tWarn_2 process_data_begin ] start
+				 */
+
+				currentComponent = "tWarn_2";
+
+				/**
+				 * [tWarn_2 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tWarn_2 process_data_end ] start
+				 */
+
+				currentComponent = "tWarn_2";
+
+				/**
+				 * [tWarn_2 process_data_end ] stop
+				 */
+
+				/**
+				 * [tWarn_2 end ] start
+				 */
+
+				currentComponent = "tWarn_2";
+
+				if (log.isDebugEnabled())
+					log.debug("tWarn_2 - " + ("Done."));
+
+				ok_Hash.put("tWarn_2", true);
+				end_Hash.put("tWarn_2", System.currentTimeMillis());
+
+				/**
+				 * [tWarn_2 end ] stop
+				 */
+			}// end the resume
+
+		} catch (java.lang.Exception e) {
+
+			if (!(e instanceof TalendException)) {
+				log.fatal(currentComponent + " " + e.getMessage(), e);
+			}
+
+			TalendException te = new TalendException(e, currentComponent,
+					globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tWarn_2 finally ] start
+				 */
+
+				currentComponent = "tWarn_2";
+
+				/**
+				 * [tWarn_2 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tWarn_2_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -677,6 +865,18 @@ public class Copy_of_JustAJob3 implements TalendJob {
 			e_tWarn_1.printStackTrace();
 
 		}
+		try {
+			errorCode = null;
+			tWarn_2Process(globalMap);
+			if (!"failure".equals(status)) {
+				status = "end";
+			}
+		} catch (TalendException e_tWarn_2) {
+			globalMap.put("tWarn_2_SUBPROCESS_STATE", -1);
+
+			e_tWarn_2.printStackTrace();
+
+		}
 
 		this.globalResumeTicket = true;// to run tPostJob
 
@@ -834,6 +1034,6 @@ public class Copy_of_JustAJob3 implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 26002 characters generated by Talend Cloud Data Management Platform on the 15
- * novembre 2018 09:29:19 CET
+ * 31051 characters generated by Talend Cloud Data Management Platform on the 15
+ * novembre 2018 09:37:29 CET
  ************************************************************************************************/
